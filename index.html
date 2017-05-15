@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.fullPage.css">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<script src="js/jQuery.js"></script>
+	<script src="js/jquery.fullPage.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="section floor1">
+			<div class="inner">
+				<div class="neikuan">
+					<div class="inin col4">
+						<img src="img/touxiang.jpg" alt="" class="mainimg">
+						<h1 class=" marsx">仝  锦</h1>
+						<h2 class=" marsx">WEB DESIGNER</h2>
+						<a href="#page2" class="">EXPLORE MYSELF</a>
+					</div>
+					<div class="inin1 col2">
+							<a class="yuan" href="#page2">A</a>
+							<h3 class="marsx  bounceIn">ABOUT ME</h3>
+							<a class="yuan" href="#page3">S</a>
+							<h3 class="marsx  bounceIn">SKILL</h3>
+							<a class="yuan" href="#page4">P</a>
+							<h3 class="marsx  bounceIn">PROJECT</h3>
+							<a class="yuan" href="#page5">H</a>
+							<h3 class="marsx  bounceIn">HIRE ME</h3>
+					</div>
+					<div class="inin col4">
+						<img src="img/touxiang.jpg" alt="" class="mainimg">
+						<h1 class=" marsx">My EXPERIENCE</h1>
+						<h2 class=" marsx">1+ YEARS</h2>
+						<a href="#page4" class="">MY PROJECT</a>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="section">
+			<div class="neikuan">
+				<div class="about col4">
+					<h1>WHAT TO KNOW</h1>
+					<h1>ABOUT ME</h1>
+				</div>
+				<div class="xx col8">
+					<p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                      Nulla pretium lectus vel justo iaculis blandit.
+                       Nulla facilisi. In hac habitasse platea dictumst.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                      Nulla pretium lectus vel justo iaculis blandit.
+                       Nulla facilisi. In hac habitasse platea dictumst.
+                       Nulla facilisi. In hac habitasse platea dictumst.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    </p>
+                    <p>性格开朗善于与人交际，工作上有较强的组织管理和动手能力，集体观念强，具有团队协作精神，创新意识。通过两年的社会生活，我成长了很多。，我对自己这两年来的收获和感受作一个小结，并以此为我今后行动的指南。思想方面，我追求上进，思想觉悟有了很大的提高。在我从事办公室文员工作过程中，感觉到了办公室文员这一职位在企业运转过程起着衔接与协调重要作用。作为一名办公室文员，要热爱本职工作，兢兢业，要有不怕苦不怕累的精神，也要有甘当无名英雄的气概。办事要公道，忠于职守。</p>
+				</div>
+			</div>
+		</div>
+		<div class="section">3</div>
+		<div class="section">4</div>
+		<div class="section">5</div>
+	</div>
+</body>
+<script>
+	$(".container").fullpage({
+		'verticalCentered': false,
+        'css3': true,
+       	menu:"#menu",
+        anchors: ['page1', 'page2', 'page3', 'page4','page5'],
+        afterLoad:function(){
+        	$(".inin").children().addClass("bounceIn");
+        	$(".about").addClass("bounceInLeft");
+        	$(".xx").addClass("bounceInRight")
+        },
+        onLeave:function(index){
+        	$(".inin").children().removeClass("bounceIn");
+        	$(".about").removeClass("bounceInLeft");
+        	$(".xx").removeClass("bounceInRight");
+        }
+	})
+	$(".yuan").each(function(i,v){
+		console.log(v)
+		$(v).hover(function(){
+			$(this).addClass("active")
+		},function(){
+			$(this).removeClass("active")
+		})
+	})
+ 
+</script>
+
+</html>
