@@ -149,9 +149,7 @@ class tcs{
 				that.food();
 				that.fenshu.innerHTML=that.she.length-3;
 
-				// if(that.maxfen){
 					if(that.maxfen<that.fenshu.innerHTML){
-						// alert(1)
 						that.maxfen=that.fenshu.innerHTML;
 						localStorage.zuigao=that.maxfen;
 					}
