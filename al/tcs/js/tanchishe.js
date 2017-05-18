@@ -151,7 +151,7 @@ class tcs{
 
 				// if(that.maxfen){
 					if(that.maxfen<that.fenshu.innerHTML){
-						alert(1)
+						// alert(1)
 						that.maxfen=that.fenshu.innerHTML;
 						localStorage.zuigao=that.maxfen;
 					}
