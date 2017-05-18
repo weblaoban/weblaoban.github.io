@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        
+        canvas{
+            background: #eee;
+            display: block;
+            margin:0 auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="500" height="500"></canvas>
+    <script>
+        window.onload=function(){
+            let canvas=document.querySelector("canvas");
+            let cobj=canvas.getContext("2d");
+            let x=249;
+            let y=249;
+            canvas.onmousemove=function(e){
+                    x=e.offsetX;
+                    y=e.offsetY;
+            }
+            class lizi{
+                constructor(canvas,cobj){
+                    this.canvas=canvas;
+                    this.cobj=cobj;
+                    this.r=parseInt(Math.random()*10+5);
+                    this.x=x;
+                    this.y=y;
+                    this.speedx=14*Math.random()-7;
+                    this.speedy=-20;
+                    this.g=0.8;
+                    this.color=`rgba(${parseInt(Math.random()*255)},${parseInt(Math.random()*255)},${parseInt(Math.random()*255)},${Math.random()})`;
+                }
+                draw(){
+                    this.cobj.save();
+                    this.cobj.translate(this.x,this.y);
+                    this.cobj.beginPath();
+                    this.cobj.arc(0,0,this.r,0,Math.PI*2);
+                    this.cobj.fillStyle=this.color;
+                    this.cobj.fill();
+                    this.cobj.restore();
+                }
+                update(){
+                    this.x+=this.speedx;
+                    this.speedy+=this.g;
+                    this.y+=this.speedy;
+                }
+            }
+            let arr=[];
+            let t=setInterval(function(){
+                let lizi1=new lizi(canvas,cobj);
+                lizi1.cobj.clearRect(0,0,500,500);
+                arr.push(lizi1);
+                for(let i=0;i<arr.length;i++){
+                    arr[i].draw();
+                    arr[i].update();
+                }
+                if(arr.length>200){
+                    arr.shift();
+                }
+            },50)
+
+        }
+
+    </script>
+</body>
+</html>

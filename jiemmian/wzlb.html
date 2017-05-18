@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/wzlb.css">
+	<link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+	<!-- banner部分 -->
+	<div class="bannerBox">
+		<div class="tu">
+			<a href=""><img src="img/banner1.jpg" alt=""></a>
+			<a href=""><img src="img/banner2.jpg" alt=""></a>
+		</div>
+		<div class="nav">
+			<div class="neikuan">
+				<a href="index.html">首页</a>
+				<a href="">护肤彩妆</a>
+				<a href="ssdp.html">时装搭配</a>
+				<a href="">气质香氛</a>
+				<a href="wzlb.html" class="aa">时尚资讯</a>
+				<a href="ppgs.html">品牌故事</a>
+			</div>
+		</div>
+		<div class="logo">
+			<img src="img/logo.png" alt="">
+		</div>
+		<div class="zhe"></div>
+	</div>
+	<!-- banner部分结束 -->
+		<div class="neikuan1">
+			<div class="mianbao">
+				<a href="">首页</a>
+				<span>></span>
+				<a href="wzxq.html" class="aa">时尚资讯</a>
+			</div>
+			<div class="zixun">
+				<div class="zixun1">
+					<img src="img/lie1.jpg" alt="">
+					<h2>时装秀</h2>
+					<p>延续至今依旧是许多化妆师和女性的最爱。延续至今依旧和女性。</p>
+				</div>
+				<div class="zixun1">
+					<img src="img/lie2.jpg" alt="">
+					<h2>时装秀</h2>
+					<p>延续至今依旧是许多化妆师和女性的最爱。延续至今依旧和女性。</p>
+				</div>
+				<a href="wzxq.html" class="zixun1 xactive">
+					<img src="img/lie3.jpg" alt="">
+					<h2>时装秀</h2>
+					<p>延续至今依旧是许多化妆师和女性的最爱。延续至今依旧和女性。</p>
+				</a>
+				<div class="zixun1">
+					<img src="img/lie4.jpg" alt="">
+					<h2>时装秀</h2>
+					<p>延续至今依旧是许多化妆师和女性的最爱。延续至今依旧和女性。</p>
+				</div>
+				<div class="zixun1">
+					<img src="img/lie5.jpg" alt="">
+					<h2>时装秀</h2>
+					<p>延续至今依旧是许多化妆师和女性的最爱。延续至今依旧和女性。</p>
+				</div>
+				<div class="zixun1">
+					<img src="img/lie2.jpg" alt="">
+					<h2>时装秀</h2>
+					<p>延续至今依旧是许多化妆师和女性的最爱。延续至今依旧和女性。</p>
+				</div>
+			</div>
+		</div>
+	<!-- footer -->
+	<footer>
+		<div class="neikuan">
+			<div class="lianxi">
+				<a href="">
+					<img src="img/font1.jpg" alt="">
+					<p>123565@qq.com</p>
+				</a>
+				<a href="">
+					<img src="img/font2.jpg" alt="">
+					<p>123565345</p>
+				</a>
+				<a href="">
+					<img src="img/font3.jpg" alt="">
+					<p>山西省太原市小店区</p>
+				</a>
+			</div>
+			<div class="hao"> 沪ICP备10014525号 - 使用条款 - 个人信息</div>
+		</div>
+	</footer>
+	<!-- footer结束 -->
+	<script src="js/animate.js"></script>
+	<script src="js/function.js"></script>
+	<script>
+	const box1=$(".zixun1");
+	for(let i=0;i<box1.length;i++){
+		box1[i].onmouseover=function(){
+			for(let j=0;j<box1.length;j++){
+				box1[j].classList.remove("xactive");
+			}
+			box1[i].classList.add("xactive");
+		}
+	}
+	</script>
+</body>
+</html>

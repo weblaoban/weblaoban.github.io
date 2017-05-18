@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.sence,.zhe{
+			width:500px;
+			height:500px;
+			border-left: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+			margin:0 auto;
+		}
+		.zhe{
+			position:absolute;
+			border:0;
+			background:url(1.jpg) no-repeat center;
+			background-color:#000;
+			left:0;
+			right:0;
+			margin:auto;
+		}
+		.block{
+			width: 49px;
+			height:49px;
+			background:url(1.png) no-repeat center;
+			background-size:cover ;
+			float:left;
+			border-right: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+		}
+		.show{
+			background:url(timg.jpg) no-repeat center;
+			background-size:cover ;
+		}
+		.control{
+			width:200px;
+			height:100%;
+			position:fixed;
+			right:50%;
+			margin-right: -500px;
+			top:0;
+			display: none;
+		}
+		.num{
+			background: #fff;
+			font-size: 20px;
+			line-height: 49px;
+			text-align: center;
+		}
+		.flag{
+			background:url(timg1.jpg) no-repeat center;
+			background-size:cover ;
+		}
+		.flagnum{
+			width: 100px;
+			height:100px;
+			line-height: 100px;
+			text-align: center;
+		}
+		.kaishi,.nd{
+			height:50px;
+			width:200px;
+			background:url(2.png) no-repeat center;
+			background-size:cover ;
+			text-align: center;
+			line-height: 50px;
+			font-size: 20px;
+			position: absolute;
+			left:0;
+			right:0;
+			margin:auto;
+			cursor:pointer;
+		}
+		.kaishi{
+			top:60%;
+		}
+		.nd{
+			top:75%;
+		}
+		.rs,.flagnum,.paihang,time,.fh{
+			display: block;
+			height:50px;
+			width:200px;
+			background: yellowgreen;
+			margin:10px 0;
+			border-radius: 5px;
+			text-align: center;
+			line-height: 50px;
+			font-size: 20px;
+			cursor:pointer;
+			color:#fff;
+		}
+		.paihangbang{
+			height:210px;
+			width:200px;
+			background: yellowgreen;
+			margin:10px 0;
+			border-radius: 5px;
+			text-align: center;
+			line-height: 50px;
+			font-size: 20px;
+			cursor:pointer;
+			color:#fff;
+			padding:0;
+			display: none;
+		}
+		h1{
+			width: 100%;
+			text-align: center;
+			margin:10px 0;
+			margin-bottom: 15px;
+			height:30px;
+			line-height: 30px;
+			font-size: 20px;
+			color:#fff;
+		}
+		li{
+			width:200px;
+			font-size: 16px;
+			padding-left: 20px;
+			box-sizing: border-box;
+			border-bottom: 2px dashed #fff;
+		}
+		.ndxz{
+			width:400px;
+			height:200px;
+			background: yellowgreen;
+			position: absolute;
+			z-index: 2;
+			border-radius: 20px;
+			left:0;
+			right:0;
+			top:0;
+			bottom:0;
+			margin:auto;
+			display: none;
+		}
+		.xz{
+			width:100px;
+			height:50px;
+			background: #fff;
+			border-radius: 10px;
+			line-height: 50px;
+			font-size: 20px;
+			text-align: center;
+			float: left;
+			margin:75px 16px;
+			cursor: pointer;
+		}
+		.xz:hover{
+			background: #ff6700;
+			color:#fff;
+		}
+		.er{
+			width:500px;
+			height:500px;
+			left:0;
+			right:0;
+			margin:auto;
+			position: absolute;
+			display: none;
+		}
+		.fail{
+			width:400px;
+			height:200px;
+			position: absolute;
+			top:0;
+			bottom:0;
+			left:0;
+			right:0;
+			margin:auto;
+			background: yellowgreen;
+			text-align: center;
+			font-size: 50px;
+			line-height: 200px;
+			border-radius: 20px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="zhe">
+		<div class="kaishi">开 始 游 戏</div>
+		<div class="nd">难 度 选 择</div>
+		<div class="ndxz">
+			<div class="xz ea"> 简 单 </div>
+			<div class="xz me"> 一 般 </div>
+			<div class="xz he"> 困 难 </div>
+		</div>
+
+	</div>
+	<div class="er">
+		<div class="fail">you falied</div>
+	</div>
+	<div class="sence"></div>
+	<div class="control">
+		<time>1</time>
+		<div class="flagnum">flag</div>
+		<div class="rs">重新开始</div>
+		<div class="paihang">排行榜</div>
+		<div class="fh">返回首页</div>
+		<ul class="paihangbang">
+			<h1>排行榜</h1>
+			<li>第一名：</li>
+			<li>第二名：</li>
+			<li>第三名：</li>
+		</ul>
+	</div>
+</body>
+<script src="jQuery.js"></script>
+<script>
+	$(document).ready(function(){
+        var num=10;
+        var ti=0;
+        var geshu=10;
+        var t;
+        var scor=0;
+        var bestscor=localStorage.best?JSON.parse(localStorage.best):[];
+        
+        function move(){
+            ti++;
+            $("time").html(ti);
+        }
+        $(".kaishi").click(function(){
+            $(this).hide().parent().slideUp(500);
+            $(".control").slideDown(1000);
+            creat();
+            t=setInterval(move,1000);
+        })
+		$(".fh").click(function(){
+		    $(".kaishi").show().parent().slideDown(500);
+            $(".control").slideUp(1000);
+            clearInterval(t);
+            ti=0;
+            $(".sence").empty();
+		})
+        $(".rs").click(function(){
+            clearInterval(t);
+            $(".sence").empty();
+            $(".er").slideUp();
+            ti=0;
+            num=geshu;
+            $(".flagnum").html("flag:"+num);
+            t=setInterval(move,1000);
+            creat();
+        })
+		$(".paihang").click(function(){
+		    $(".paihangbang").slideToggle();
+		})
+		$(".nd").click(function(){
+		    $(".ndxz").slideDown();
+		})
+		$(".ea").click(function(){
+		    $(this).parent().slideUp();
+		    num=5;
+		    $(".flagnum").html("flag:"+num);
+		    geshu=5;
+		})
+        $(".me").click(function(){
+            $(this).parent().slideUp();
+            num=10;
+            $(".flagnum").html("flag:"+num);
+            geshu=10;
+        })
+        $(".he").click(function(){
+            $(this).parent().slideUp();
+            num=15;
+            $(".flagnum").html("flag:"+num);
+            geshu=15;
+        })
+        $(".flagnum").html("flag:"+num);
+
+
+
+	    function creat(){
+	    do{
+	        $(".sence").empty();
+
+		for(var i=0;i<10;i++){
+			for(var j=0;j<10;j++){
+			    var isLei=Math.random()>0.9;
+				$("<div>")
+					.addClass(function(){
+				    if(isLei){
+				        return "block lei";
+					}else{
+				        return "block";
+					}
+				})
+					.attr("id",i+"-"+j)
+					.data("pos",{x:i,y:j})
+					.mousedown(mousedownEvent)
+					.appendTo($(".sence"))
+			}
+		}
+        }while ($(".lei").length!=num)
+        }
+
+
+
+
+        function mousedownEvent(e){
+	        if(leftclick!=null){
+                if(e.which==1){
+                    leftclick.call(this);
+                }else{
+                    rightclick.call(this);
+                }
+			}else{
+		        return;
+			}
+	}
+	function leftclick() {
+	    if($(this).hasClass("flag")){
+	        return;
+		}
+		if($(this).hasClass("lei")){
+		    $(".lei").addClass("show");
+		    $(".er").slideDown();
+            clearInterval(t);
+			$(".sence div").unbind("mousedown");
+			return;
+        }else{
+		    $(this).addClass("num");
+		    var pos=$(this).data("pos");
+		    var n=0;
+		    for(let i=pos.x-1;i<=pos.x+1;i++){
+		        for(let j=pos.y-1;j<=pos.y+1;j++){
+		            if($("#"+i+"-"+j).hasClass("lei")){
+		                n++;
+					}
+				}
+			}
+            $(this).html(n);
+			if(n==0){
+                for(let i=pos.x-1;i<=pos.x+1;i++){
+                    for(let j=pos.y-1;j<=pos.y+1;j++){
+                        var obj=$("#"+i+"-"+j);
+                        if(obj.length==1&&!obj.hasClass("num")){
+                            leftclick.call(obj[0]);
+						}
+                    }
+                }
+			}
+		}
+    }
+    function rightclick() {
+		if($(this).hasClass("num")){
+		    return;
+		}
+		if($(this).hasClass("flag")){
+		    $(this).removeClass("flag");
+		    num++;
+		}else{
+            num--;
+          if(num<0){
+          	num++;
+                	$(".er").slideDown();
+	                clearInterval(t);
+	                $(".sence div").unbind("mousedown");
+	                return;
+                }
+                $(this).addClass("flag")
+            if(num==0){
+                if($(".flag").filter(".lei").length==geshu){
+                    alert("成功");
+                    clearInterval(t);
+                    scor=ti;
+                    if(bestscor.length<3||bestscor.length==3&&scor<bestscor[2].scors){
+                        var name=prompt("请输入姓名：");
+                        bestscor.push({name,scors:scor});
+                        bestscor.sort(function(a,b){
+                            if(a.scors<b.scors){
+                                return -1;
+							}else{
+                                return 1;
+							}
+						})
+                        if(bestscor.length>3){
+                            bestscor.pop();
+                        }
+						reWrite();
+					}
+					localStorage.best=JSON.stringify(bestscor);
+                    alert("你本次用时为："+scor)
+                }
+			}
+		}
+		$(".flagnum").html("flag:"+num);
+    }
+	$(document).on("contextmenu",function(e){
+	    e.preventDefault();
+	})
+	function reWrite(){
+            $("li").html("");
+
+		if(bestscor){
+            $(bestscor).each(function(index,v){
+
+                $("li")[index].innerHTML+=v.name+"用时"+v.scors;
+		})
+            }
+	}
+	reWrite();
+
+	})
+</script>
+</html>

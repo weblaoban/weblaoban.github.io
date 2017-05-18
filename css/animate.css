@@ -548,9 +548,9 @@ Copyright (c) 2013 Daniel Eden
 @keyframes bounceInDown {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(-2000px);
-    -ms-transform: translateY(-2000px);
-    transform: translateY(-2000px);
+    -webkit-transform: translateY(-100px);
+    -ms-transform: translateY(-100px);
+    transform: translateY(-100px);
   }
 
   60% {
@@ -575,7 +575,8 @@ Copyright (c) 2013 Daniel Eden
 
 .bounceInDown {
   -webkit-animation-name: bounceInDown;
-  animation-name: bounceInDown;
+  animation: bounceInDown 1s forwards;
+  animation-delay: 0.4s;
 }
 
 @-webkit-keyframes bounceInLeft {
@@ -632,9 +633,9 @@ Copyright (c) 2013 Daniel Eden
 
 .bounceInLeft {
   -webkit-animation-name: bounceInLeft;
-  animation-name: bounceInLeft;
-  animation-duration: 1s;
-  animation-delay: 0.4s;
+  animation: bounceInLeft 1s  forwards;
+  /*animation-delay: 0.4s;*/
+
 }
 
 @-webkit-keyframes bounceInRight {
@@ -661,39 +662,120 @@ Copyright (c) 2013 Daniel Eden
   }
 }
 
-@keyframes bounceInRight {
+@keyframes bounceInTopRight {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(2000px);
-    -ms-transform: translateX(2000px);
-    transform: translateX(2000px);
+    transform: translateX(2000px) translateY(-200px);
   }
 
   60% {
     opacity: 1;
-    -webkit-transform: translateX(-30px);
-    -ms-transform: translateX(-30px);
-    transform: translateX(-30px);
+    transform: translateX(-30px) translateY(-30px);
   }
 
   80% {
-    -webkit-transform: translateX(10px);
-    -ms-transform: translateX(10px);
-    transform: translateX(10px);
+    transform: translateX(10px) translateY(10px);
   }
 
   100% {
-    -webkit-transform: translateX(0);
-    -ms-transform: translateX(0);
-    transform: translateX(0);
+  /*  -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);*/
+    transform: translateX(0px) translateY(0px);
+    /*transform: translateY(10px);*/
+
   }
 }
 
-.bounceInRight {
+.bounceInTopRight {
   -webkit-animation-name: bounceInRight;
-  animation-name: bounceInRight;
-  animation-duration: 1s;
-  animation-delay: 0.4s;
+  animation: bounceInTopRight 1s forwards;
+}
+@keyframes bounceInBotRight {
+  0% {
+    opacity: 0;
+  /*  -webkit-transform: translateX(2000px);
+    -ms-transform: translateX(2000px);*/
+    transform: translateX(2000px) translateY(200px);
+    /*transform: translateY();*/
+  }
+
+  60% {
+    opacity: 1;
+   /* -webkit-transform: translateX(-30px);
+    -ms-transform: translateX(-30px);*/
+    transform: translateX(-30px) translateY(30px);
+    /*transform: translateY();*/
+  }
+
+  80% {
+    /*-webkit-transform: translateX(10px);
+    -ms-transform: translateX(10px);*/
+    transform: translateX(10px) translateY(-10px);
+    /*transform: translateY();*/
+  }
+
+  100% {
+  /*  -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);*/
+    transform: translateX(0px) translateY(0px);
+    /*transform: translateY(10px);*/
+
+  }
+}
+.bounceInBotRight {
+  -webkit-animation-name: bounceInRight;
+  animation: bounceInBotRight 1s forwards;
+}
+
+
+@keyframes bounceInTopLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-2000px) translateY(200px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateX(30px) translateY(30px);
+  }
+
+  80% {
+    transform: translateX(-10px) translateY(-10px);
+  }
+
+  100% {
+    transform: translateX(0px) translateY(0px);
+  }
+}
+.bounceInTopLeft {
+  -webkit-animation-name: bounceInRight;
+  animation: bounceInTopLeft 1s forwards;
+}
+
+
+@keyframes bounceInBotLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-2000px) translateY(-400px);
+  }
+
+ /* 60% {
+    opacity: 1;
+    transform: translateX(30px) translateY(-300px);
+  }
+
+  80% {
+    transform: translateX(-10px) translateY(-200px);
+  }*/
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px) translateY(0px);
+  }
+}
+.bounceInBotLeft {
+  -webkit-animation-name: bounceInRight;
+  animation: bounceInBotLeft 1s forwards;
 }
 
 @-webkit-keyframes bounceInUp {
@@ -723,9 +805,9 @@ Copyright (c) 2013 Daniel Eden
 @keyframes bounceInUp {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(2000px);
-    -ms-transform: translateY(2000px);
-    transform: translateY(2000px);
+    -webkit-transform: translateY(100px);
+    -ms-transform: translateY(100px);
+    transform: translateY(100px);
   }
 
   60% {
@@ -751,6 +833,8 @@ Copyright (c) 2013 Daniel Eden
 .bounceInUp {
   -webkit-animation-name: bounceInUp;
   animation-name: bounceInUp;
+  animation-duration: 1s;
+  animation-delay: 0.4s;
 }
 
 @-webkit-keyframes bounceOut {
@@ -862,12 +946,7 @@ Copyright (c) 2013 Daniel Eden
     transform: translateX(0);
   }
 
-  20% {
-    opacity: 1;
-    -webkit-transform: translateX(20px);
-    transform: translateX(20px);
-  }
-
+ 
   100% {
     opacity: 0;
     -webkit-transform: translateX(-2000px);
@@ -875,77 +954,71 @@ Copyright (c) 2013 Daniel Eden
   }
 }
 
+
 @keyframes bounceOutLeft {
   0% {
+    opacity: 1;
     -webkit-transform: translateX(0);
     -ms-transform: translateX(0);
     transform: translateX(0);
   }
-
-  20% {
-    opacity: 1;
-    -webkit-transform: translateX(20px);
-    -ms-transform: translateX(20px);
-    transform: translateX(20px);
-  }
-
   100% {
     opacity: 0;
-    -webkit-transform: translateX(-2000px);
-    -ms-transform: translateX(-2000px);
-    transform: translateX(-2000px);
+    -webkit-transform: translateX(-1000px);
+    -ms-transform: translateX(-1000px);
+    transform: translateX(-1000px);
   }
 }
 
 .bounceOutLeft {
   -webkit-animation-name: bounceOutLeft;
-  animation-name: bounceOutLeft;
+  /*animation-name: bounceOutLeft;*/
+  animation:bounceOutLeft 1s forwards;
 }
 
-@-webkit-keyframes bounceOutRight {
+/*@-webkit-keyframes bounceOutRight {
   0% {
     -webkit-transform: translateX(0);
     transform: translateX(0);
   }
 
   20% {
-    opacity: 1;
-    -webkit-transform: translateX(-20px);
-    transform: translateX(-20px);
+    /*opacity: 1;*/
+/*    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
   }
-
+  80%{
+    -webkit-transform: translateX(-30px);
+    -ms-transform: translateX(-30px);
+    transform: translateX(-30px);
+  }
   100% {
     opacity: 0;
     -webkit-transform: translateX(2000px);
     transform: translateX(2000px);
   }
-}
+}*/
 
 @keyframes bounceOutRight {
   0% {
+     opacity: 1;
     -webkit-transform: translateX(0);
     -ms-transform: translateX(0);
     transform: translateX(0);
   }
-
-  20% {
-    opacity: 1;
-    -webkit-transform: translateX(-20px);
-    -ms-transform: translateX(-20px);
-    transform: translateX(-20px);
-  }
-
+ 
   100% {
     opacity: 0;
-    -webkit-transform: translateX(2000px);
-    -ms-transform: translateX(2000px);
-    transform: translateX(2000px);
+    -webkit-transform: translateX(1000px);
+    -ms-transform: translateX(1000px);
+    transform: translateX(1000px);
   }
 }
 
 .bounceOutRight {
   -webkit-animation-name: bounceOutRight;
-  animation-name: bounceOutRight;
+  /*animation-name: bounceOutRight;*/
+  animation:bounceOutRight 1s forwards;
 }
 
 @-webkit-keyframes bounceOutUp {
